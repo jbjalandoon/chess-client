@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-lexend: "Lexend Deca", sans-serif;
+}
+
+@layer components {
+  .card {
+    background-color: #302e2b;
+    background-image: url("/bg.png");
+  }
+}
+
+body {
+  background-image: url("/bg.png");
+  background-color: #302e2b;
+}
+
+* {
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #6baf8d;
+  --sb-size: 8px;
+}
+
+*::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 1px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 1px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
