@@ -7,8 +7,10 @@ export const Route = createFileRoute("/internet")({
   component: RouteComponent,
 });
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 // eslint-disable-next-line react-refresh/only-export-components
-export const internetSocket = io("http://localhost:3000/internet", {
+export const internetSocket = io(API_URL + "/internet", {
   reconnection: false,
   autoConnect: false,
   protocols: ["websocket"],
