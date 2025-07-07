@@ -70,6 +70,17 @@ export default function Countdown({
           )}
         </span>
       )}
+      <button
+        className="cursor-pointer rounded-lg bg-blue-700/80 px-3 py-2 text-sm disabled:cursor-not-allowed disabled:bg-gray-500"
+        disabled={vote !== null}
+        onClick={() => {
+          stockfishSocket.emit("resign");
+          setStartVoting(false);
+          setVote("resign");
+        }}
+      >
+        Resign
+      </button>
       {computerThinking && (
         <span className="text-center text-lg">Waiting...</span>
       )}

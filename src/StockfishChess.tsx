@@ -45,8 +45,14 @@ export default function StockfishChess() {
       setChessPosition(chessGame.fen());
     };
 
+    const handleResign = (winner: Color) => {
+      setWinner(winner === "w" ? "white" : "black");
+    };
+
+    stockfishSocket.on("resign", handleResign);
     stockfishSocket.on("board-update", handleBoardUpdate);
     return () => {
+      stockfishSocket.off("resign", handleResign);
       stockfishSocket.off("board-update", handleBoardUpdate);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
